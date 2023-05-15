@@ -15,4 +15,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\assign_DataModel\assign_DataModel.csproj" />
+    <ProjectReference Include="..\SharedData\SharedClassLibrary.csproj" />
+  </ItemGroup>
+
 </Project>

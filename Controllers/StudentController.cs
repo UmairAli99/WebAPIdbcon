@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using WebAPIdbcon.Data;
-using WebAPIdbcon.Models;
+using SharedClassLibrary;
+using WebAPIdbcon.Model;
 
 namespace WebAPIdbcon.Controllers
 {
@@ -9,7 +9,6 @@ namespace WebAPIdbcon.Controllers
     public class StudentsController : ControllerBase
     {
         private readonly AppDbContext _context;
-
         public StudentsController(AppDbContext context)
         {
             _context = context;
@@ -28,6 +27,7 @@ namespace WebAPIdbcon.Controllers
 
             return CreatedAtAction(nameof(Get), new { id = student.id }, student);
         }
+
         [HttpPut("{id}")]
         public IActionResult UpdateStudent(int id, Student student)
         {
@@ -46,6 +46,7 @@ namespace WebAPIdbcon.Controllers
 
             return Ok(existingStudent);
         }
+
         [HttpGet("{id}")]
         public ActionResult<Student> Get(int id)
         {
@@ -58,6 +59,7 @@ namespace WebAPIdbcon.Controllers
 
             return student;
         }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStudent(int id)
         {
@@ -72,6 +74,5 @@ namespace WebAPIdbcon.Controllers
 
             return NoContent();
         }
-
     }
 }
